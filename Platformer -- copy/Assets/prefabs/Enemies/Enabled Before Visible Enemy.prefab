@@ -7,10 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9124607130088480355, guid: 2f190335ae12b8248bac2f5edd6fe9bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124607130679118776, guid: 2f190335ae12b8248bac2f5edd6fe9bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9124607131261975792, guid: 2f190335ae12b8248bac2f5edd6fe9bc,
         type: 3}
       propertyPath: m_Name
       value: Enabled Before Visible Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124607131261975792, guid: 2f190335ae12b8248bac2f5edd6fe9bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9124607131261975793, guid: 2f190335ae12b8248bac2f5edd6fe9bc,
         type: 3}

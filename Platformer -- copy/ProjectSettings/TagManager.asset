@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Wall
-  - Enemy
+  - Player
+  - aah spiky
   - 
   - 
   - 
@@ -36,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - No raycast.
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

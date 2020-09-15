@@ -11,7 +11,7 @@ public class JumpEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics2D.IgnoreLayerCollision(2,9,true);   
     }
 
     // Update is called once per frame
@@ -20,13 +20,15 @@ public class JumpEnemy : Enemy
       if (Time.time-lastJumped>jumpDelay)
         {
             Jump();
+          
         }
     }
     bool isOnGround()
     {
         ContactFilter2D cf = new ContactFilter2D();
         cf.useTriggers = false;
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, -Vector2.up, 1.5f, 31);
+        LayerMask thingy = LayerMask.GetMask("Default");
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, -Vector2.up, 1.5f,thingy);
         foreach (RaycastHit2D hit in hits)
         {
 

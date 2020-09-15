@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2957941604079012905}
   - component: {fileID: 2957941604079012911}
   - component: {fileID: 2957941604079012908}
-  m_Layer: 31
+  m_Layer: 2
   m_Name: zoom out powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

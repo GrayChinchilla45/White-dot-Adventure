@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4244681012335716649}
   - component: {fileID: 4244681012335716650}
   - component: {fileID: 4244681012335716647}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sawblade thing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb233ed19a56bea45ba7c51a085a1bb5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2dad2213ee81aa4bb26d7f079649758, type: 3}
   m_Color: {r: 0.4392157, g: 0.4392157, b: 0.4392157, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71607f6d17fb7a04e9b9e6f1ea1dcdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1000
+  rotateSpeed: 1375
 --- !u!61 &4244681012335716647
 BoxCollider2D:
   m_ObjectHideFlags: 0

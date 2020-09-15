@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4288296230223002628}
   - component: {fileID: 7612290958442924707}
-  m_Layer: 31
+  m_Layer: 2
   m_Name: nonsolid rectangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6804018379422315623}
   - component: {fileID: 7580976250946673326}
-  m_Layer: 31
+  m_Layer: 2
   m_Name: nonsolid wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

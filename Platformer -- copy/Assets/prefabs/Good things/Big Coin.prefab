@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 6496054237396198273, guid: 586da908aa27037409a41af4a3996b5b,
         type: 3}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Big Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496054237396198273, guid: 586da908aa27037409a41af4a3996b5b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6496054237396198301, guid: 586da908aa27037409a41af4a3996b5b,
         type: 3}

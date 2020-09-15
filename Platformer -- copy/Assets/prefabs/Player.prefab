@@ -105,6 +105,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 7781091824662738251}
   spawnPos: {x: 0, y: 0, z: 0}
+  blackBox: {fileID: 0}
+  deathTime: 1.5
 --- !u!50 &7781091824662738251
 Rigidbody2D:
   serializedVersion: 4

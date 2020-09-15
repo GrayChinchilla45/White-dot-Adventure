@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class Player : MonoBehaviour
     public static int score = 0;
     public Vector3 spawnPos;
     public static Player main;
+    public Image blackBox;
+    public float deathTime=1.5f;
+    private bool dead = false;
+    private float timeOfDeath;
     // Start i`s called before the first frame update
     void Start()
     {
@@ -30,6 +35,23 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dead) {
+            float timePassed = Time.time - timeOfDeath;
+            float ratiopassed = timePassed / deathTime;
+            if (timePassed > deathTime)
+            {
+                dead = false;
+                transform.position = spawnPos;
+                blackBox.color = new Color32(0,0,0,0);
+                
+            }
+            else
+            {
+                byte ratio = (byte)( ratiopassed * 255);
+                blackBox.color = new Color32(0, 0, 0, ratio);
+            }
+            return;
+        }
         if (Input.GetButton("Jump") && !jumping)
         {
             jump();
@@ -88,7 +110,11 @@ public class Player : MonoBehaviour
     }
     public void OnDeath()
     {
-        transform.position = spawnPos;
+        if (!dead)
+        {
+            dead = true;
+            timeOfDeath = Time.time;
+        }
     }
     void Fall()
     {

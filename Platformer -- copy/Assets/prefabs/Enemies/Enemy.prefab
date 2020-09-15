@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9124607130088480365}
   - component: {fileID: 9124607130088480364}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: DamagePlayerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9124607130679118778}
   - component: {fileID: 9124607130679118777}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: DieCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 9124607131261975795}
   - component: {fileID: 9124607131261975793}
   - component: {fileID: 6675395850347912192}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

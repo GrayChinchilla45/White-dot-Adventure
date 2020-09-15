@@ -13,6 +13,7 @@ public class Goomba : Enemy
     void Start()
     {
         transform.rotation = Quaternion.identity;
+        Physics2D.IgnoreLayerCollision(2, 9, true);
     }
 
     // Update is called once per frame
@@ -30,7 +31,8 @@ public class Goomba : Enemy
     {
         ContactFilter2D cf = new ContactFilter2D();
         cf.useTriggers = false;
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.right * direction, 2, 31);
+        LayerMask thingy = LayerMask.GetMask("Default");
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.right * direction, 2, thingy);
         foreach (RaycastHit2D hit in hits)
         {
 

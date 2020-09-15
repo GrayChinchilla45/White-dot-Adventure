@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6721004705926310846}
   - component: {fileID: 6721004705926310847}
   - component: {fileID: 6721004705926310819}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Bullet Bill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

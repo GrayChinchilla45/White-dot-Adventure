@@ -38,7 +38,6 @@ public class BulletBill : MonoBehaviour
         if(collision.otherCollider.IsTouchingLayers(mask) && canExplode)
         {
            
-            Debug.Log(mask);
             Destroy(gameObject);
         }
     }

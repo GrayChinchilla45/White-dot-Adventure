@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8379667525356849552}
   - component: {fileID: 8379667525356849553}
   - component: {fileID: 8379667525356849558}
-  m_Layer: 31
+  m_Layer: 9
   m_Name: Jumping spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
