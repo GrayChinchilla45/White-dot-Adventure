@@ -748,7 +748,7 @@ PrefabInstance:
     - target: {fileID: 8379667525356849559, guid: b5e07953cbbaa0441a32e0ae76a57b31,
         type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5e07953cbbaa0441a32e0ae76a57b31, type: 3}
@@ -5146,7 +5146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1923465211
 MonoBehaviour:
@@ -5345,7 +5345,7 @@ PrefabInstance:
     - target: {fileID: 8394994210521788054, guid: 8f6da090f31d8cb43951423e0d602d14,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8394994210521788054, guid: 8f6da090f31d8cb43951423e0d602d14,
         type: 3}

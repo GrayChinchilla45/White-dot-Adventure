@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8710574915001146632}
   - component: {fileID: 8710574915001146635}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: DieCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 8710574915451873856}
   - component: {fileID: 8710574915451873868}
   - component: {fileID: 8710574915451873919}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Smarter Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8710574916691937503}
   - component: {fileID: 8710574916691937502}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: DamagePlayerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

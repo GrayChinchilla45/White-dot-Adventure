@@ -13,7 +13,7 @@ public class Goomba : Enemy
     void Start()
     {
         transform.rotation = Quaternion.identity;
-        Physics2D.IgnoreLayerCollision(2, 9, true);
+        Physics2D.IgnoreLayerCollision(10, 9, true);
     }
 
     // Update is called once per frame
