@@ -76,6 +76,7 @@
     <Compile Include="Assets\scripts\Enemies\JumpEnemy.cs" />
     <Compile Include="Assets\scripts\Enemies\Smarty.cs" />
     <Compile Include="Assets\scripts\MainMenu.cs" />
+    <Compile Include="Assets\scripts\MovingPlatform.cs" />
     <Compile Include="Assets\scripts\PauseManager.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\PlayerImage.cs" />
