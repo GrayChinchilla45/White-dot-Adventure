@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     public int variable;
@@ -24,11 +24,16 @@ public class Player : MonoBehaviour
     public float deathTime=1.5f;
     private bool dead = false;
     private float timeOfDeath;
+    public UnityEvent death;
     // Start i`s called before the first frame update
     void Start()
     {
         main = this;
         spawnPos = transform.position;
+        if (death==null)
+        {
+            death = new UnityEvent();
+        }
 
     }
 
@@ -43,6 +48,7 @@ public class Player : MonoBehaviour
                 dead = false;
                 transform.position = spawnPos;
                 blackBox.color = new Color32(0,0,0,0);
+                death.Invoke();
                 
             }
             else
