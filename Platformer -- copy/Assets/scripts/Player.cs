@@ -21,41 +21,27 @@ public class Player : MonoBehaviour
     public Vector3 spawnPos;
     public static Player main;
     public Image blackBox;
-    public float deathTime=1.5f;
-    private bool dead = false;
+    public float deathTime = 1.5f;
+    private bool freeze = false;
     private float timeOfDeath;
+    private bool isFadingOut;
     public UnityEvent death;
     // Start i`s called before the first frame update
     void Start()
     {
         main = this;
         spawnPos = transform.position;
-        if (death==null)
+        if (death == null)
         {
             death = new UnityEvent();
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dead) {
-            float timePassed = Time.time - timeOfDeath;
-            float ratiopassed = timePassed / deathTime;
-            if (timePassed > deathTime)
-            {
-                dead = false;
-                transform.position = spawnPos;
-                blackBox.color = new Color32(0,0,0,0);
-                death.Invoke();
-                
-            }
-            else
-            {
-                byte ratio = (byte)( ratiopassed * 255);
-                blackBox.color = new Color32(0, 0, 0, ratio);
-            }
+        if (freeze)
+        {
             return;
         }
         if (Input.GetButton("Jump") && !jumping)
@@ -73,30 +59,31 @@ public class Player : MonoBehaviour
 
         //}
         float h = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(speed, 0, 0) * Time.deltaTime*h;
+        transform.position += new Vector3(speed, 0, 0) * Time.deltaTime * h;
         if (Input.GetKey(KeyCode.DownArrow))
         {
-           
+
         }
-        if (jumping && rb.velocity.y <= 0) {
+        if (jumping && rb.velocity.y <= 0)
+        {
             jumping = false;
         }
         Fall();
     }
     void jump()
     {
-        if (isOnGround() || lastGround+fallLeeway>Time.time)
+        if (isOnGround() || lastGround + fallLeeway > Time.time)
         {
             rb.velocity = new Vector2(0, jumpVelocity);
             jumping = true;
         }
     }
-    bool isOnGround ()
+    bool isOnGround()
     {
         ContactFilter2D cf = new ContactFilter2D();
         cf.useTriggers = false;
-        LayerMask thing = LayerMask.GetMask("Default","Wall");
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, -Vector2.up,groundDistance,thing);
+        LayerMask thing = LayerMask.GetMask("Default", "Wall");
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, -Vector2.up, groundDistance, thing);
         foreach (RaycastHit2D hit in hits)
         {
 
@@ -110,25 +97,54 @@ public class Player : MonoBehaviour
         }
         return false;
     }
-    public void Test (Coin c) {
+    public void Test(Coin c)
+    {
         score += c.value;
         Debug.Log(score);
     }
     public void OnDeath()
     {
-        if (!dead)
+        if (!freeze)
         {
-            dead = true;
-            timeOfDeath = Time.time;
+            freeze = true;
+            FadeOut(1.5f);
+            transform.position = spawnPos;
+            death.Invoke();
+     //       FadeIn(1.5f);
+            freeze = false;
         }
     }
     void Fall()
     {
-        if (rb.velocity.y < 0) {
-            rb.velocity += Vector2.up * Physics2D.gravity * Time.deltaTime * (fallMulti-1);
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity * Time.deltaTime * (fallMulti - 1);
         }
-        else if (rb.velocity.y>0 && !Input.GetButton("Jump")) {
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
             rb.velocity += Vector2.up * Physics2D.gravity * Time.deltaTime * (lowJumpMulti - 1);
+        }
+    }
+    public void FadeOut(float duration)
+    {
+        float timeStarted = Time.time;
+        while (timeStarted + duration > Time.time)
+        {
+            float timePassed = Time.time - timeStarted;
+            float ratiopassed = timePassed / deathTime;
+            byte ratio = (byte)(ratiopassed * 255);
+            blackBox.color = new Color32(0, 0, 0, ratio);
+        }
+    }
+    public void FadeIn(float duration)
+    {
+        float timeStarted = Time.time;
+        while (timeStarted + duration > Time.time)
+        {
+            float timePassed = Time.time - timeStarted;
+            float ratiopassed = timePassed / deathTime;
+            byte ratio = (byte)(255 - ratiopassed * 255);
+            blackBox.color = new Color32(0, 0, 0, ratio);
         }
     }
 }
