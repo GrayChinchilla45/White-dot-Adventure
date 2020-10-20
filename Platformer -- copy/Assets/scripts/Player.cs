@@ -24,8 +24,13 @@ public class Player : MonoBehaviour
     public float deathTime = 1.5f;
     private bool freeze = false;
     private float timeOfDeath;
-    private bool isFadingOut;
+    private float fadeOutTime;
+    private float fadeOutDur;
+    private float fadeInTime;
+    private float fadeInDur;
+
     public UnityEvent death;
+
     // Start i`s called before the first frame update
     void Start()
     {
@@ -40,6 +45,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time < fadeOutTime + fadeOutDur)
+        {
+            float timePassed = Time.time - fadeOutTime;
+            float ratiopassed = timePassed / fadeOutDur;
+            byte ratio = (byte)(ratiopassed * 255);
+            blackBox.color = new Color32(0, 0, 0, ratio);
+        }
+        if (Time.time < fadeInTime + fadeInDur) 
+        {
+            float timePassed = Time.time - fadeInTime;
+            float ratiopassed = timePassed / fadeInDur;
+            byte ratio = (byte)(255 - ratiopassed * 255);
+            blackBox.color = new Color32(0, 0, 0, ratio);
+        }
         if (freeze)
         {
             return;
@@ -107,12 +126,16 @@ public class Player : MonoBehaviour
         if (!freeze)
         {
             freeze = true;
-            FadeOut(1.5f);
-            transform.position = spawnPos;
-            death.Invoke();
-     //       FadeIn(1.5f);
-            freeze = false;
+            FadeOut(1.2f);
+            Invoke("AfterDying",1.2f);
         }
+    }
+    void AfterDying()
+    {
+        transform.position = spawnPos;
+        death.Invoke();
+        FadeIn(1.2f);
+        freeze = false;
     }
     void Fall()
     {
@@ -127,24 +150,12 @@ public class Player : MonoBehaviour
     }
     public void FadeOut(float duration)
     {
-        float timeStarted = Time.time;
-        while (timeStarted + duration > Time.time)
-        {
-            float timePassed = Time.time - timeStarted;
-            float ratiopassed = timePassed / deathTime;
-            byte ratio = (byte)(ratiopassed * 255);
-            blackBox.color = new Color32(0, 0, 0, ratio);
-        }
+        fadeOutDur = duration;
+        fadeOutTime = Time.time;
     }
     public void FadeIn(float duration)
     {
-        float timeStarted = Time.time;
-        while (timeStarted + duration > Time.time)
-        {
-            float timePassed = Time.time - timeStarted;
-            float ratiopassed = timePassed / deathTime;
-            byte ratio = (byte)(255 - ratiopassed * 255);
-            blackBox.color = new Color32(0, 0, 0, ratio);
-        }
+        fadeInDur = duration;
+        fadeInTime = Time.time;
     }
 }
