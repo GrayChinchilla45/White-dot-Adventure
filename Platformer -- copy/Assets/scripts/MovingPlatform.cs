@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
+    public enum Direction {Up,Down,Left,Right};
+    public Direction direction;
     public float speed;
-    private bool isMoving = false;
+    public bool isMoving = false;
     private Rigidbody2D rb;
     private Vector3 startpos;
     private GameObject Player;
+    private GameObject Physical;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         startpos = transform.position;
         Player = GameObject.Find("Player");
         Player.GetComponent<Player>().death.AddListener(GoBack);
+        Physical = transform.Find("Physical").gameObject;
+        rb = Physical.GetComponent<Rigidbody2D>();
+        if (direction == Direction.Up || direction == Direction.Down) {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        }
     }
 
     // Update is called once per frame
@@ -29,15 +40,10 @@ public class MovingPlatform : MonoBehaviour
         {
             rb.velocity = new Vector2();
         }
+        transform.position = Physical.transform.position;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Player>() != null){
-            ContactPoint2D contact = collision.GetContact(0);
-            if (contact.normal.x == 0.0f && contact.normal.y ==-1.0f) {
-                isMoving = true;
-            }
-        }
     }
     private void GoBack()
     {

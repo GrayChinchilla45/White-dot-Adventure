@@ -82,6 +82,7 @@
     <Compile Include="Assets\scripts\PlayerImage.cs" />
     <Compile Include="Assets\scripts\Saw.cs" />
     <Compile Include="Assets\scripts\Spikes.cs" />
+    <Compile Include="Assets\scripts\StartMove.cs" />
     <Compile Include="Assets\scripts\TransportTube.cs" />
     <Compile Include="Assets\scripts\UIManager.cs" />
     <Compile Include="Assets\scripts\WinScreen.cs" />

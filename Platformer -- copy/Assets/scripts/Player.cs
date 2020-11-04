@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public static Player main;
     public Image blackBox;
     public float deathTime = 1.5f;
-    private bool freeze = false;
+    public bool freeze = false;
     private float timeOfDeath;
     private float fadeOutTime;
     private float fadeOutDur;
