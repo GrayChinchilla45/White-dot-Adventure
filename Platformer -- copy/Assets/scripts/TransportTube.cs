@@ -7,6 +7,7 @@ public class TransportTube : MonoBehaviour
 {
     public GameObject placeToGo;
     public Player Player;
+    private int state = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +26,12 @@ public class TransportTube : MonoBehaviour
             ContactPoint2D contact = collision.GetContact(0);
             if (contact.normal.x == 0.0f && contact.normal.y == -1.0f)
             {
-                if (Input.GetKey("down") || Input.GetKey("s"))
+                if ((Input.GetKey("down") || Input.GetKey("s")) && state == 0)
                 {
                     Debug.Log("Pipe Entered.");
                     Player.GetComponent<Player>().freeze = true;
                     Player.GetComponent<Player>().FadeOut(1.2f);
+                    state = 1;
                     Invoke("SecondPart", 1.2f);
                 }
             }
@@ -45,5 +47,6 @@ public class TransportTube : MonoBehaviour
     void ThirdPart()
     {
         Player.GetComponent<Player>().freeze = false;
+        state = 0;
     }
 }

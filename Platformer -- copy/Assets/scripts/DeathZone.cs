@@ -22,5 +22,8 @@ public class DeathZone : MonoBehaviour
         {
             collision.GetComponent<Player>().OnDeath();
         }
+        if (collision.GetComponent<MovingPlatform>() != null) {
+            collision.GetComponent<MovingPlatform>().GoBack();
+        }
     }
 }

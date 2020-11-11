@@ -48,11 +48,12 @@ public class MovingPlatform : MonoBehaviour
             rb.velocity = new Vector2();
         }
         transform.position = Physical.transform.position;
+        Physical.transform.position = transform.position;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
     }
-    private void GoBack()
+    public void GoBack()
     {
         transform.position = startpos;
         isMoving = false;
