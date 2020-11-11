@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public enum Direction {Up,Down,Left,Right};
+    public enum Direction {UpDown,LeftRight};
     public Direction direction;
     public float speed;
     public bool isMoving = false;
@@ -20,12 +20,12 @@ public class MovingPlatform : MonoBehaviour
         Player.GetComponent<Player>().death.AddListener(GoBack);
         Physical = transform.Find("Physical").gameObject;
         rb = Physical.GetComponent<Rigidbody2D>();
-        if (direction == Direction.Up || direction == Direction.Down) {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        if (direction == Direction.UpDown) {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
         else
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
@@ -34,8 +34,15 @@ public class MovingPlatform : MonoBehaviour
     {
       if (isMoving)
         {
-            rb.velocity = new Vector2(speed, 0.0f);
-        }
+            if (direction == Direction.LeftRight)
+            {
+                rb.velocity = new Vector2(speed, 0.0f);
+            }
+            else
+            {
+                rb.velocity = new Vector2(0.0f, speed);
+            }
+       }
       else
         {
             rb.velocity = new Vector2();
