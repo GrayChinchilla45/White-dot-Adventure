@@ -18,12 +18,15 @@ public class DeathZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+    
         if (collision.GetComponent<Player>()!=null)
         {
             collision.GetComponent<Player>().OnDeath();
         }
-        if (collision.GetComponent<MovingPlatform>() != null) {
-            collision.GetComponent<MovingPlatform>().GoBack();
+        if (collision.tag == "Moving Platform") {
+            collision.transform.parent.GetComponent<MovingPlatform>().GoBack();
+            Debug.Log("This part works");
+
         }
     }
 }

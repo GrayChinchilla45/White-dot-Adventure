@@ -19,7 +19,7 @@ public class Coin : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      if (collision.GetComponent<Player>()!=null) {
+      if (collision.GetComponent<Player>()!=null && !collision.GetComponent<Player>().freeze) {
             Player p = collision.GetComponent<Player>();
             p.Test(this);
          Destroy(gameObject);

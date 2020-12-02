@@ -47,10 +47,10 @@ public class Goomba : Enemy
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<DeathZone>() != null)
-        {
-            Destroy(gameObject);
-        }
+       // if (collision.gameObject.GetComponent<DeathZone>() != null)
+        //{
+        //    Destroy(gameObject);
+       // }
         if (collision.gameObject.GetComponent<Player>() != null)
         {
 
@@ -63,6 +63,10 @@ public class Goomba : Enemy
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Player>()!=null)
+        {
+            Destroy(gameObject);
+        }
+        if (collision.GetComponent<DeathZone>() != null)
         {
             Destroy(gameObject);
         }
