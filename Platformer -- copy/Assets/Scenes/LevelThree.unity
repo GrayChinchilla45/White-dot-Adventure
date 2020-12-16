@@ -2008,6 +2008,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 621642640950546570, guid: d2ee8a64842985844bd0af11e5238dcb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 621642640950546571, guid: d2ee8a64842985844bd0af11e5238dcb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 621642641149615974, guid: d2ee8a64842985844bd0af11e5238dcb,
         type: 3}
       propertyPath: m_Name

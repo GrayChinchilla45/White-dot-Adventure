@@ -23,7 +23,7 @@ public class Smarty : Enemy
         transform.position += Vector3.right * direction * speed * Time.deltaTime;
         if (isObstructed() || willFallOff())
         {
-            direction = -direction;
+            direction = -direction;        
         }
     }
 
@@ -36,7 +36,7 @@ public class Smarty : Enemy
         {
 
 
-            if (hit.collider != null && hit.collider.gameObject != gameObject)
+            if (hit.collider != null && hit.collider.gameObject != gameObject && hit.collider.gameObject.name != "DamagePlayerCollider")
             {
                 Debug.DrawLine(transform.position, hit.point);
                 return true;

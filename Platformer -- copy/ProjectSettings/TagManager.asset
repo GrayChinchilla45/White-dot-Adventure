@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 'pretty layer '
+    uniqueID: 2394043279
+    locked: 0
