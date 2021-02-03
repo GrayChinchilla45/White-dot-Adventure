@@ -69,7 +69,8 @@ public class Smarty : Enemy
     {
         ContactFilter2D cf = new ContactFilter2D();
         cf.useTriggers = false;
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position+Vector3.right*direction, -Vector2.up, 1.25f, 31);
+        LayerMask thing = LayerMask.GetMask("Default", "Wall");
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position+Vector3.right*direction, -Vector2.up, 1.25f, thing);
         foreach (RaycastHit2D hit in hits)
         {
 
